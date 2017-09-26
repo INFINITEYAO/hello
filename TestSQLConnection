@@ -1,0 +1,20 @@
+import java.sql.*;
+public class TestSQLConnection{
+public static void main(String[] args){
+try{
+   class.forName("sun.jdbc.odbc.TdbcOdbcDriver");
+   //加载数据库JDBC_ODBC桥连接驱动
+   Connection con=DriverManager.getConnection("jdbc:odbc:数据源");
+   //利用数据库驱动连接Windows中的数据源并得到一个连接对象，相当于是建了一个高速公路，一头连着Java程序，一头连着数据库
+    Statement sta =con.creatStatement();
+    //建立一个适合这条路上的运送武平的汽车
+    sta.execute("insert into student values('李四'，20)");//插入语句
+                 delete from student where stuid=1; //删除语句
+                 update student set stuage=20;  //更新语句
+                 select *from student; //查询语句
+   }
+   catch(Exception e){
+     e.printStackTrace();
+   }
+ }
+}
